@@ -1,7 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Ticket_Management.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<PresidioContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("JosiahElliott")));
 
 var app = builder.Build();
 
